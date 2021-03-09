@@ -1,9 +1,11 @@
 import React from 'react';
-import { faReddit } from 'react-icons/fa';
+
 const Header = () => {
   return (
     <div>
-      <faReddit />
+      <h1>Logo</h1>
+      <h2>Search</h2>
+      <input placeholder='Search Here' />
     </div>
   );
 };
