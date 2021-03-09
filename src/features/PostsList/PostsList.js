@@ -1,6 +1,6 @@
 import React from 'react';
+// Add UseState
 import Post from '../Post/Post';
-import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   decrement,
