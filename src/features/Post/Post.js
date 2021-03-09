@@ -9,7 +9,7 @@ const Post = () => {
         <h3>Subreddit</h3>
       </header>
       <h1>Post Title</h1>
-      <p>Image here</p>
+      <h2>Image here</h2>
       <footer>
         <p>Comment Img</p>
         <p>Comment No.</p>
