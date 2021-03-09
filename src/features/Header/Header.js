@@ -1,11 +1,15 @@
 import React from 'react';
+import { FaReddit } from 'react-icons/fa';
+import { HiOutlineSearch } from 'react-icons/hi';
 
 const Header = () => {
   return (
     <div>
-      <h1>Logo</h1>
+      <FaReddit />
       <input placeholder='Search Here' />
-      <button>Search</button>
+      <button>
+        <HiOutlineSearch />
+      </button>
     </div>
   );
 };
