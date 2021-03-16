@@ -5,7 +5,6 @@ const initialState = {
   posts: [],
   error: false,
   isLoading: false,
-  searchTerm: '',
   selectedSubreddit: 'r/nba'
 };
 
@@ -28,12 +27,8 @@ export const redditSlice = createSlice({
       state.isLoading = false;
       state.error = true;
     },
-    setSearchTerm(state, action) {
-      state.searchTerm = action.payload;
-    },
     setSelectedSubreddit(state, action) {
       state.selectedSubreddit = action.payload;
-      state.searchTerm = '';
     }
   }
 });
@@ -43,7 +38,6 @@ export const {
   getPostsFailed,
   getPostsSuccess,
   startGetPosts,
-  setSearchTerm,
   setSelectedSubreddit
 } = redditSlice.actions;
 
@@ -54,8 +48,6 @@ export const fetchPosts = (subreddit) => async (dispatch) => {
   try {
     dispatch(startGetPosts());
     const posts = await getSubredditPosts(subreddit);
-
-    // We are adding showingComments and comments as additional fields to handle showing them when the user wants to. We need to do this because we need to call another API endpoint to get the comments for each post.
 
     dispatch(getPostsSuccess(posts));
   } catch (error) {
