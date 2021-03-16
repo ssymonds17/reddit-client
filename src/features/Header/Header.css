@@ -1,0 +1,16 @@
+.header-wrapper {
+  display: flex;
+  padding: 20px;
+  justify-content: space-between;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.reddit-icon {
+  font-size: 4rem;
+}
+
+.form-wrapper {
+  display: flex;
+  align-items: center;
+}

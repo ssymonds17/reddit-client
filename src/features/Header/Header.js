@@ -3,6 +3,7 @@ import { FaReddit } from 'react-icons/fa';
 import { HiOutlineSearch } from 'react-icons/hi';
 import { setSelectedSubreddit } from '../../store/redditSlice';
 import { useDispatch } from 'react-redux';
+import './Header.css';
 
 const Header = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -20,20 +21,24 @@ const Header = () => {
   };
 
   return (
-    <div>
-      <FaReddit />
-      <form className='search' onSubmit={onSearchTermSubmit}>
-        <input
-          type='text'
-          placeholder='Search Here'
-          value={searchTerm}
-          onChange={onSearchTermChange}
-          aria-label='Search Subreddits'
-        />
-        <button type='submit' aria-label='Search'>
-          <HiOutlineSearch />
-        </button>
-      </form>
+    <div className='header-wrapper'>
+      <div className='icon-wrapper'>
+        <FaReddit className='reddit-icon' />
+      </div>
+      <div className='form-wrapper'>
+        <form className='search' onSubmit={onSearchTermSubmit}>
+          <input
+            type='text'
+            placeholder='Search Here'
+            value={searchTerm}
+            onChange={onSearchTermChange}
+            aria-label='Search Subreddits'
+          />
+          <button type='submit' aria-label='Search'>
+            <HiOutlineSearch />
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

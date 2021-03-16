@@ -28,12 +28,7 @@ const Home = () => {
     return (
       <div className='error'>
         <h2>Failed to load posts.</h2>
-        <button
-          type='button'
-          onClick={() => dispatch(fetchPosts(selectedSubreddit))}
-        >
-          Try again
-        </button>
+        <h2>Please try and search for a different subreddit.</h2>
       </div>
     );
   }
