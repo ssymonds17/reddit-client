@@ -1,20 +1,26 @@
 import React from 'react';
+import moment from 'moment';
+import { TiMessage } from 'react-icons/ti';
+import './Post.css';
 
-const Post = () => {
+const Post = (props) => {
+  const { post } = props;
+
   return (
-    <div>
-      <header>
-        <h3>Author</h3>
-        <h3>Date Posted</h3>
-        <h3>Subreddit</h3>
+    <article key={post.id} className='post-wrapper'>
+      <header className='post-header'>
+        <h3>{post.author}</h3>
+        <h3>{moment.unix(post.created_utc).fromNow()}</h3>
       </header>
-      <h1>Post Title</h1>
-      <h2>Image here</h2>
-      <footer>
-        <p>Comment Img</p>
-        <p>Comment No.</p>
+      <main className='post-main'>
+        <h1>{post.title}</h1>
+        <img src={post.url} alt='' className='post-image' />
+      </main>
+      <footer className='post-footer'>
+        <TiMessage className='icon-action' />
+        <p>{post.num_comments}</p>
       </footer>
-    </div>
+    </article>
   );
 };
 

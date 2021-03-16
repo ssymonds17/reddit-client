@@ -1,8 +1,8 @@
-import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from './counterSlice';
+import { configureStore, combineReducers } from '@reduxjs/toolkit';
+import redditReducer from './redditSlice';
 
 export default configureStore({
-  reducer: {
-    counter: counterReducer
-  }
+  reducer: combineReducers({
+    reddit: redditReducer
+  })
 });

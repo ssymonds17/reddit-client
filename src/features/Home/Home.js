@@ -1,12 +1,23 @@
-import React from 'react';
-import PostsList from '../PostsList/PostsList';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import Post from '../Post/Post';
+import { fetchPosts, setSearchTerm } from '../../store/redditSlice';
 
 const Home = () => {
+  const reddit = useSelector((state) => state.reddit);
+  const { posts, isLoading, error, searchTerm, selectedSubreddit } = reddit;
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchPosts(selectedSubreddit));
+  }, [selectedSubreddit]);
+
   return (
-    <div>
-      <h1>First Page</h1>
-      <PostsList />
-    </div>
+    <>
+      {posts.map((post) => (
+        <Post key={post.id} post={post} />
+      ))}
+    </>
   );
 };
 
