@@ -16,6 +16,7 @@ const Header = () => {
     e.preventDefault();
     const termToSubmit = 'r/' + searchTerm.toLowerCase();
     dispatch(setSelectedSubreddit(termToSubmit));
+    setSearchTerm('');
   };
 
   return (
